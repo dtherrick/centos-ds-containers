@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-FROM cyberds-base
+FROM centos-ds/base
 
 # Export env settings
 ENV TERM=xterm
@@ -9,7 +9,6 @@ ENV LANG en_US.UTF-8
 ADD /requirements/ /tmp/requirements
 
 RUN pip3.6 install -r /tmp/requirements/requirements.txt
-RUN pip3.6 install --verbose https://github.com/sassoftware/python-swat/releases/download/v1.2.1/python-swat-1.2.1-linux64.tar.gz
 
 RUN useradd --create-home --home-dir /home/ds --shell /bin/bash ds
 RUN usermod -aG wheel ds
@@ -17,10 +16,6 @@ RUN usermod -aG wheel ds
 ADD run_ipython.sh /home/ds
 RUN chmod +x /home/ds/run_ipython.sh
 RUN chown ds /home/ds/run_ipython.sh
-
-ADD /assets/.authinfo /home/ds
-RUN chown ds /home/ds/.authinfo
-RUN chmod 0600 /home/ds/.authinfo
 
 RUN jupyter-nbextension install rise --py --sys-prefix
 RUN jupyter-nbextension enable rise --py --sys-prefix

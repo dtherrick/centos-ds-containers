@@ -1,7 +1,6 @@
 #! /bin/bash
 
-NAME=$1
-FOLDER=$2
+FOLDER=$1
 
-CONTAINER=`docker run -d -p 8888:8888 -v $FOLDER:/home/ds/notebooks centosds/$NAME`
+CONTAINER=`docker run -d -p 8888:8888 -v $FOLDER:/home/ds/notebooks centos-ds/jupyter`
 echo $CONTAINER

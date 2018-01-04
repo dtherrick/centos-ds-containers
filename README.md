@@ -15,7 +15,7 @@ Building the containers:
 There are two simple shell scripts provided to build the two containers.
 
 1. `build_base.sh`: This builds the image `centos-ds/ds-base` and should be run first. After invoking the build, go get coffee or dinner. It takes a while.
-2. `build_jupyter.sh`: This builds the image `centos-ds\jupyter`. It builds much faster than the base image.
+2. `build_jupyter.sh`: This builds the image `centos-ds/jupyter`. It builds much faster than the base image.
 
 When complete, verify the success of the image builds by typing `docker images` and look for the two images you built.
 
