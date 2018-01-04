@@ -16,13 +16,15 @@ There are two simple shell scripts provided to build the two containers.
 
 1. `build_base.sh`: This builds the image `centos-ds/ds-base` and should be run first. After invoking the build, go get coffee or dinner. It takes a while.
 2. `build_jupyter.sh`: This builds the image `centos-ds/jupyter`. It builds much faster than the base image.
+3. `build_pyspark.sh`: This builds the `centos-ds/pyspark` image. This adds a Spark instance (and `pyspark`) to the Jupyter notebook.
 
-When complete, verify the success of the image builds by typing `docker images` and look for the two images you built.
+When complete, verify the success of the image builds by typing `docker images` and look for the images you built.
 
-Running the Jupyter container:
+Running the container:
 ------------------------------
-* To run this container, we need to include a mapping to a local folder that contains our notebooks. Anything we add to this folder will be visible inside the container, so we can add notebooks or data files if needed.
-* Start the container by typing: `docker run -d -p 8888:8888 -v <your-fully-qualified-path-to-your-notebooks>:/home/ds/notebooks centos-ds/jupyter`
+* To run any container based on our Jupyter image, we need to include a mapping to a local folder that contains our notebooks. Anything we add to this folder will be visible inside the container, so we can add notebooks or data files if needed.
+* Start the container by typing: `./run_container.sh <your-fully-qualified-path-to-your-notebooks> <container-name>`
+    * Don't include `centos-ds` in the container name. In other words, at this time you'd use either `jupyter` or `pyspark`.
 * It should echo back a long token, but if the notebook doesn't successfully start, the container silently exits. Thus test for success by typing: `docker container ls`
 * If the container is successfully running, open a browser tab and go to: `http://localhost:8888`. You should see the Jupyter notebook home page, with all of your local notebooks showing up in the list.
 
