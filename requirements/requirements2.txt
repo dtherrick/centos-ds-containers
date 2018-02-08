@@ -1,0 +1,6 @@
+pandas
+pandas-datareader
+requests
+requests-oauthlib
+beautifulsoup4
+ipython

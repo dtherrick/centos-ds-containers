@@ -14,5 +14,6 @@ tensorflow
 keras
 pandas-datareader
 requests
+requests-oauthlib
 beautifulsoup4
 rise
