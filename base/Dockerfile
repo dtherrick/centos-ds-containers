@@ -18,6 +18,7 @@ RUN rm /bin/sh \
 	gdbm-devel \
 	db4-devel \
 	libpcap-devel \
+	libffi-devel \
 	xz-devel \
 	expat-devel \
 	numactl \
