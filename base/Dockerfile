@@ -27,23 +27,23 @@ RUN rm /bin/sh \
 
 # Install SQLite
 RUN cd /usr/src \
-	&& wget http://www.sqlite.org/2017/sqlite-autoconf-3210000.tar.gz \
-	&& tar xvfz sqlite-autoconf-3210000.tar.gz \
-	&& cd sqlite-autoconf-3210000 \
+	&& wget http://www.sqlite.org/2019/sqlite-autoconf-3290000.tar.gz \
+	&& tar xvfz sqlite-autoconf-3290000.tar.gz \
+	&& cd sqlite-autoconf-3290000 \
 	&& ./configure \
 	&& make \
 	&& make install
 
 # Install python
 RUN cd /usr/src \
-	&& wget https://www.python.org/ftp/python/3.6.3/Python-3.6.3.tar.xz \
-	&& tar xf Python-3.6.3.tar.xz \
-	&& cd Python-3.6.3 \
+	&& wget https://www.python.org/ftp/python/3.7.4/Python-3.7.4.tar.xz \
+	&& tar xf Python-3.7.4.tar.xz \
+	&& cd Python-3.7.4 \
 	&& ./configure \
-	 --enable-optimizations \
-	 --enable-loadable-sqlite-extensions \
+	--enable-optimizations \
+	--enable-loadable-sqlite-extensions \
 	&& make \
 	&& make altinstall
 
-RUN ln -s /usr/local/bin/python3.6 /usr/bin/python3.6 \
-	&& ln -s /usr/local/bin/pip3.6 /usr/bin/pip3.6
+RUN ln -s /usr/local/bin/python3.7 /usr/bin/python3.7 \
+	&& ln -s /usr/local/bin/pip3.7 /usr/bin/pip3.7
