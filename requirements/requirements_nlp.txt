@@ -9,6 +9,7 @@ nltk
 numpy
 pandas
 pandas-datareader
+pytz
 pyzmq
 requests
 requests-oauthlib
